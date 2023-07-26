@@ -9,7 +9,7 @@ const app = express()
 const authRouter = require('./routes/auth')
 const blogsRouter = require('./routes/blog')
 const auth =  require('./middlware/authentication')
-const comment = require('./routes/comments')
+
 
 //midlware
 const errorHandlerMiddleware = require('./middlware/error-handler')
@@ -23,7 +23,6 @@ app.use(express.json())
 app.use(express.static('./public'))
 app.use('/api/v1/auth',authRouter)
 app.use('/api/v1/blog',auth,blogsRouter)
-app.use('/api/v1/comment',comment)
 
 
 app.use(errorHandlerMiddleware)
